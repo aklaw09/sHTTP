@@ -1,0 +1,23 @@
+{
+  "name": "shttp",
+  "version": "1.0.0",
+  "description": "A simple http server built from scratch",
+  "main": "sHTTP.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aklaw09/shttp.git"
+  },
+  "author": "Aniket",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aklaw09/shttp/issues"
+  },
+  "homepage": "https://github.com/aklaw09/shttp#readme",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "net": "^1.0.2"
+  }
+}
