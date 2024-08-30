@@ -1,0 +1,50 @@
+const net = require('net');
+
+const resp = `HTTP/1.1 200 OK
+            Date: Mon, 27 Jul 2009 12:28:53 GMT
+            Server: sHTTP v0.5
+            Last-Modified: Thu, 29 Aug 2024 19:15:56 GMT
+            Content-Length: 88
+            Content-Type: text/html
+
+
+            Hello world! 
+            sHTTP greets you!
+            `;
+
+class TcpServer {
+    server;
+    conn;
+
+    constructor(port) {
+        this.server = net.createServer((conn) => {
+        console.log("Created a server");
+        this.conn = conn;
+        conn.on("data", (data) => this.#reqHandler(data, conn));
+        conn.on("end", (data) => this.#endConnection(data,conn));
+        conn.on("error", this.#errorHandler);
+        });
+        this.server.listen(port, () => {
+            console.log("TcpServer listening on port:", port);
+        })
+    };
+
+    #reqHandler(rawData, conn) {
+        console.log("Data received");
+        conn.write(Buffer.from(resp));
+        conn.end();
+    }
+
+    #endConnection(data, conn) {
+        console.log("Ending connection");
+        conn.end();
+    }
+
+    #errorHandler(err) {
+        console.log(err);
+    }
+}
+
+
+const server = new TcpServer(8080);
+// server.listen(8080, console.log);

@@ -6,13 +6,14 @@ const server = net.createServer((conn) => {
     let data = '';
     const resp = `HTTP/1.1 200 OK
                 Date: Mon, 27 Jul 2009 12:28:53 GMT
-                Server: Apache/2.2.14 (Win32)
-                Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+                Server: sHTTP v0.5
+                Last-Modified: Thu, 29 Aug 2024 19:15:56 GMT
                 Content-Length: 88
                 Content-Type: text/html
 
 
-                Hello world! sHTTP greets you!
+                Hello world! 
+                sHTTP greets you!
                 `;
 
     conn.on('data', (stream) => {
