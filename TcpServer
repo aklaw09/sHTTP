@@ -8,8 +8,12 @@ const resp = `HTTP/1.1 200 OK
             Content-Type: text/html
 
 
-            Hello world! 
-            sHTTP greets you!
+            <!DOCTYPE html>
+	<body>
+		Hello, world!
+		sHTTP /1.1 greets you
+	</body>
+</html>
             `;
 
 export class TcpServer {
@@ -29,9 +33,9 @@ export class TcpServer {
         })
     };
 
-    reqHandler(rawData, conn) {
+    reqHandler(data, conn) {
         console.log("Data received");
-        conn.write(Buffer.from(resp));
+        conn.write(Buffer.from(data));
         conn.end();
     }
 
@@ -44,6 +48,3 @@ export class TcpServer {
         console.log(err);
     }
 }
-
-
-// const server = new TcpServer(8080);

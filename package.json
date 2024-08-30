@@ -20,6 +20,7 @@
   "homepage": "https://github.com/aklaw09/shttp#readme",
   "dependencies": {
     "buffer": "^6.0.3",
+    "fs": "^0.0.1-security",
     "net": "^1.0.2"
   },
   "devDependencies": {
